@@ -39,6 +39,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       render json: { status: 200, msg: 'User was created.' }
+    else
+      render json: @user.errors, status: :bad
     end
   end
 
@@ -66,10 +68,8 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation)
+      # require(:user)
+      params.permit(:username, :password)
     end
 
-    def authorize
-    return_unauthorized unless current_user && current_user.can_modify_user?(params[:id])
-  end
 end
