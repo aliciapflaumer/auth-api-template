@@ -1,12 +1,6 @@
 class User < ApplicationRecord
-  # Basic password validation
-  # validates_length_of :password, maximum: 20, minimum: 6, allow_nil: true,
-  #   allow_blank: false
-  # validates_confirmation_of :password, allow_nil: true, allow_blank: false
+  has_secure_password
 
-  #Validations
-   validates_presence_of :username, :password
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-   #encrypt password
-   has_secure_password
 end
