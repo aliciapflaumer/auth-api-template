@@ -1,6 +1,6 @@
 # Authentication API template
 
-I am creating a starter template to include Authentication to use for creating applications with a backend Rails API to save time in the future.
+I am creating a starter template to include authentication to use for creating applications with a backend Rails API.
 
 ## API endpoints
 
@@ -8,5 +8,12 @@ I am creating a starter template to include Authentication to use for creating a
 |--------|---------------------|------------------ |
 | GET    | `/users`            | `users#index`     |
 | POST   | `/users/create`     | `users#create`    |
-| PATCH  | `/user/:id`         | `users#update`    |
-| DELETE | `/user/:id`         | `users#destroy`   |
+| POST   | `/users/signin`     | `users#show`      |
+| PATCH  | `/update/:id`       | `users#update`    |
+| DELETE | `/delete/:id`       | `users#destroy`   |
+
+## Work in Progress
+
+• Currently able to:
+  • create a user
+  • delete a user

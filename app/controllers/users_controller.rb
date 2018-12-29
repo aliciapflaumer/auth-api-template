@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    render json: @users
   end
 
   # POST /users
@@ -25,8 +25,8 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    if @user.update(user_params)
-      render json: { status: 200, msg: 'User details have been updated.' }
+    if @user.update(pw_params)
+      render json: { status: 200, msg: 'User password has been updated.' }
     else
       render :new
     end
@@ -49,6 +49,10 @@ class UsersController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def user_params
       params.require(:credentials).permit(:username, :password, :password_confirmation)
+    end
+
+    def pw_params
+    params.require(:passwords).permit(:old, :new)
     end
 
 end
