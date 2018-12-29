@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   get '/users' => 'users#index'
   post '/users/create' => 'users#create'
-  patch  '/user/:id' => 'users#update'
-  delete '/user/:id' => 'users#destroy'
+  post '/users/signin' => 'users#show'
+  patch  '/update/:id' => 'users#update'
+  delete '/delete/:id' => 'users#destroy'
 
   resources :users
 
