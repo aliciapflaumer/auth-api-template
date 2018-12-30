@@ -1,7 +1,7 @@
 #!/bin/bash
 
 API="${API_ORIGIN:-http://localhost:3000}"
-URL_PATH="/users/create/"
+URL_PATH="/sign-in"
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \
@@ -9,8 +9,7 @@ curl "${API}${URL_PATH}" \
   --data '{
     "credentials": {
       "username": "'"${USERNAME}"'",
-      "password": "'"${PASSWORD}"'",
-      "password_confirmation": "'"${PASSWORD}"'"
+      "password": "'"${PASSWORD}"'"
     }
   }'
 
