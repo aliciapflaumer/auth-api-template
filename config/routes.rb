@@ -3,10 +3,11 @@ Rails.application.routes.draw do
 
   get '/users' => 'users#index'
   get '/users/:id' => 'users#show'
-  
-  post '/users/create' => 'users#create'
-  patch  '/change-password/:id' => 'users#update'
-  delete '/delete/:id' => 'users#destroy'
+
+  post '/sign-up' => 'users#signup'
+  post '/sign-in' => 'users#signin'
+  patch  '/users/change-password/:id' => 'users#changepw'
+  delete '/sign-out/:id' => 'users#destroy'
 
   resources :users
 

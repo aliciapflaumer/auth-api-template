@@ -6,10 +6,12 @@ I am building a starter template to include authentication to use for creating a
 
 ## API endpoints
 
-| Verb   | URI Pattern         | Controller#Action |
-|--------|---------------------|------------------ |
-| GET    | `/users`            | `users#index`     |
-| POST   | `/users/create`     | `users#create`    |
-| POST   | `/users/:id`        | `users#show`      |
-| PATCH  | `/update/:id`       | `users#update`    |
-| DELETE | `/delete/:id`       | `users#destroy`   |
+| Verb   | URI Pattern            | Controller#Action |
+|--------|------------------------|------------------ |
+| GET    | `/users`               | `users#index`     |
+| GET    | `/users/:id`           | `users#show`      |
+
+| POST   | `/sign-up`             | `users#signup`    |
+| POST   | `/sign-in`             | `users#signin`    |
+| PATCH  | `/change-password/:id` | `users#changepw`  |
+| DELETE | `/sign-out/:id`        | `users#signout`   |

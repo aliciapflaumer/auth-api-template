@@ -1,10 +1,16 @@
 #!/bin/bash
 
 API="${API_ORIGIN:-http://localhost:3000}"
-URL_PATH="/delete"
+URL_PATH="/users/change-password/"
 curl "${API}${URL_PATH}/${ID}" \
   --include \
-  --request DELETE \
+  --request PATCH \
   --header "Content-Type: application/json" \
+  --data '{
+    "passwords": {
+      "old": "'"${OLDPW}"'",
+      "new": "'"${NEWPW}"'"
+    }
+  }'
 
 echo

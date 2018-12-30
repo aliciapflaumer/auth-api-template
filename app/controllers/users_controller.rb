@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :changepw, :destroy]
 
   # GET /users
   def index
@@ -18,27 +18,36 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # POST /users
-  def create
+  # POST /sign-up
+  def signup
     @user = User.new(user_params)
     if @user.save
-      render json: { status: 200, msg: 'User was created.' }
+      render json: { status: 200, msg: 'User succesfully signed up.' }
     else
       render :new
     end
   end
 
-  # PATCH/PUT /users/1
-  def update
+  # POST /sign-in
+  def signin
+    if @user.signin(user_params[:username], user_params[:password])
+      render json: { status: 200, msg: 'User succesfully signed in.' }
+    else
+      head :unauthorized
+    end
+  end
 
-    if @user.update(pw_params)
+  # PATCH/PUT /users/1
+  def changepw
+
+    if @user.changepw(pw_params)
       render json: { status: 200, msg: 'User password has been updated.' }
     else
       format.json { render json: @user.errors, status: :unprocessable_entity }
     end
   end
 
-  # DELETE /users/1
+  # DELETE /sign-out/1
   def destroy
     if @user.destroy
       render json: { status: 200, msg: 'User has been deleted.' }
