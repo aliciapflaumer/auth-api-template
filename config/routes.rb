@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   # User actions
 
   get '/users' => 'users#index'
+  get '/users/:id' => 'users#show'
+  
   post '/users/create' => 'users#create'
-  post '/users/signin' => 'users#show'
-  patch  '/update/:id' => 'users#update'
+  patch  '/change-password/:id' => 'users#update'
   delete '/delete/:id' => 'users#destroy'
 
   resources :users

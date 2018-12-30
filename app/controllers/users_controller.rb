@@ -10,7 +10,12 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @user = User.find(params[:id])
     render json: @users
+  end
+
+  def new
+    @user = User.new
   end
 
   # POST /users
@@ -19,16 +24,17 @@ class UsersController < ApplicationController
     if @user.save
       render json: { status: 200, msg: 'User was created.' }
     else
-      render json: @user.errors, status: :bad
+      render :new
     end
   end
 
   # PATCH/PUT /users/1
   def update
+
     if @user.update(pw_params)
       render json: { status: 200, msg: 'User password has been updated.' }
     else
-      render :new
+      format.json { render json: @user.errors, status: :unprocessable_entity }
     end
   end
 
@@ -52,7 +58,6 @@ class UsersController < ApplicationController
     end
 
     def pw_params
-    params.require(:passwords).permit(:old, :new)
+      params.require(:passwords).permit(:old, :new)
     end
-
 end
