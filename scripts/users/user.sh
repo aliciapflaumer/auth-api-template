@@ -1,16 +1,10 @@
 #!/bin/bash
 
 API="${API_ORIGIN:-http://localhost:3000}"
-URL_PATH="/change-password"
+URL_PATH="/users"
 curl "${API}${URL_PATH}/${ID}" \
   --include \
-  --request PATCH \
+  --request GET \
   --header "Content-Type: application/json" \
-  --data '{
-    "passwords": {
-      "old": "'"${OLDPW}"'",
-      "new": "'"${NEWPW}"'"
-    }
-  }'
 
 echo
