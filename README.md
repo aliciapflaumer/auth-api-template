@@ -10,7 +10,6 @@ I am building a starter template to include authentication to use for creating a
 |--------|------------------------|------------------ |
 | GET    | `/users`               | `users#index`     |
 | GET    | `/users/:id`           | `users#show`      |
-
 | POST   | `/sign-up`             | `users#signup`    |
 | POST   | `/sign-in`             | `users#signin`    |
 | PATCH  | `/change-password/:id` | `users#changepw`  |
