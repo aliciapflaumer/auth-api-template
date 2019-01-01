@@ -10,6 +10,5 @@ I am building a starter template to include simple authentication to use for cre
 |--------|------------------------|------------------ |
 | GET    | `/users`               | `users#index`     |
 | GET    | `/users/:id`           | `users#show`      |
-
 | POST   | `/sign-up`             | `users#signup`    | 
 | DELETE | `/sign-out/:id`        | `users#signout`   |
