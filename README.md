@@ -2,7 +2,7 @@
 
 ## Work in Progress
 
-I am building a starter template to include authentication to use for creating applications with a backend Rails API.
+I am building a starter template to include simple authentication to use for creating applications with a backend Rails API.
 
 ## API endpoints
 
@@ -10,7 +10,6 @@ I am building a starter template to include authentication to use for creating a
 |--------|------------------------|------------------ |
 | GET    | `/users`               | `users#index`     |
 | GET    | `/users/:id`           | `users#show`      |
+
 | POST   | `/sign-up`             | `users#signup`    |
-| POST   | `/sign-in`             | `users#signin`    |
-| PATCH  | `/change-password/:id` | `users#changepw`  |
 | DELETE | `/sign-out/:id`        | `users#signout`   |
