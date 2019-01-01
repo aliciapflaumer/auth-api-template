@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   get '/users/:id' => 'users#show'
 
   post '/sign-up' => 'users#signup'
-  post '/sign-in' => 'users#signin'
-  patch  '/users/change-password/:id' => 'users#changepw'
   delete '/sign-out/:id' => 'users#destroy'
 
   resources :users
