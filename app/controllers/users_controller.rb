@@ -28,6 +28,15 @@ class UsersController < ApplicationController
     # render sign-in form
   end
 
+  # PATCH /users/1
+  def changepw
+    if @user.changepw(pw_params)
+      render json: @user
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
   # DELETE /sign-out/1
   def destroy
     if @user.destroy
